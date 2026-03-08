@@ -7,18 +7,23 @@ const Header  = (props) => {
   )
 }
 
+const Part = (props) => {
+  console.log(props)
+  return (
+    <div>
+      <p>{props.partname} {props.partvalue}</p>
+    </div>
+  )
+
+}
+
 const Content  = () => {
-  const contents = [
-    { name: 'Fundamentals of React', value: 10 },
-    { name: 'Using props to pass data', value: 7 },
-    { name: 'State of a component', value: 14 },
-  ]
 
   return (
     <div>
-      <p>{contents[0].name} {contents[0].value}</p>
-      <p>{contents[1].name} {contents[1].value}</p>
-      <p>{contents[2].name} {contents[2].value}</p>
+      <Part partname = 'Fundamentals of React' partvalue = {10} />
+      <Part partname = 'Using props to pass data' partvalue = {7} />
+      <Part partname = 'State of a component' partvalue = {14} />
     </div>
   )
 }
