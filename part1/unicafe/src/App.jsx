@@ -1,5 +1,29 @@
 import { useState } from 'react'
 
+const Statistics = (props) => {
+  if (props.good === 0 && props.bad === 0 && props.neutral === 0) {
+    return (
+      <div>
+        <h1>Statistics</h1>
+
+        <p>No Feedback Given</p>
+      </div>
+    )
+  }
+  return (
+    <div>
+    <h1>Statistics</h1>
+
+     <p>Good: {props.good}</p>
+     <p>Neutral: {props.neutral}</p>
+     <p>Bad: {props.bad}</p>
+     <p>All: {props.total}</p>
+     <p>Average: {props.average}</p>
+     <p>Positive: {props.positivepercent}%</p>
+    </div>
+     
+  )
+}
 
 const App = () => {
   // save clicks of each button to its own state
@@ -37,14 +61,13 @@ const App = () => {
       <button onClick={HandleNeutral}>Neutral</button>
       <button onClick={HandleBad}>Bad</button>
 
-      <h1>Statistics</h1>
-
-      <p>Good: {good}</p>
-      <p>Neutral: {neutral}</p>
-      <p>Bad: {bad}</p>
-      <p>All: {total}</p>
-      <p>Average: {average}</p>
-      <p>Positive: {positivepercent}%</p>
+      <Statistics 
+       good = {good}
+       neutral = {neutral}
+       bad = {bad}
+       total = {total}
+       average = {average}
+       positivepercent = {positivepercent}/>
 
     </div>
   )
